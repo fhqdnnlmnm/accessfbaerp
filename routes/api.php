@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Http\Request;
-
+use App\Model\PortOrigin;
+use App\Http\Controllers\PortOriginController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -13,6 +14,12 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+Route::get('port_origins','PortOriginController@index');
+Route::get('port_origins/{port_origin}','PortOriginController@show');
+Route::post('port_origins','PortOriginController@store');
+Route::put('port_origins/{port_origin}','PortOriginController@update');
+Route::delete('port_origins/{port_origin}','PortOriginController@delete');
