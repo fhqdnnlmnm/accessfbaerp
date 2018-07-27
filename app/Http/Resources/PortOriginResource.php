@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\Resource;
 
-class PortOrigin extends Resource
+class PortOriginResource extends Resource
 {
     /**
      * Transform the resource into an array.

@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use App\Model\PortOrigin;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\PortOriginController;
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +19,10 @@ use App\Http\Controllers\PortOriginController;
 //     return $request->user();
 // });
 
-Route::get('port_origins','PortOriginController@index');
+// Route::get('port_origins','PortOriginController@index');
+Route::get('port_origins',function () {
+    return DB::select('select * from port_origins where id > ?',[1]);
+});
 Route::get('port_origins/{port_origin}','PortOriginController@show');
 Route::post('port_origins','PortOriginController@store');
 Route::put('port_origins/{port_origin}','PortOriginController@update');

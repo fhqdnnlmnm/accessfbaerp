@@ -13,28 +13,26 @@ class PortOriginController extends Controller
         return PortOrigin::all();
     }
 
-    public function shwo($id)
+    public function show($id)
     {
         return PortOrigin::find($id);
     }
 
     public function store(Request $request)
     {
-        return PortOrigin::create($request->all());
+        $portorigin = PortOrigin::create($request->all());
+        return response()->json($portorigin,201);
     }
 
-    public function update(Request $request,$id)
+    public function update(Request $request,PortOrigin $portorigin)
     {
-        $portorigin=PortOrigin::findOrFail($id);
         $portorigin->update($request->all());
-
-        return $portorigin;
+        return response()->json($portorigin,200);
     }
 
-    public function delete(Request $request, $id)
+    public function delete(PortOrigin $portorigin)
     {
-        $portorigin=PortOrigin::findOrFail($id);
         $portorigin->delete();
-        return 204;
+        return response()->json(null,204);
     }
 }
