@@ -27,3 +27,13 @@ Route::get('port_origins/{port_origin}','PortOriginController@show');
 Route::post('port_origins','PortOriginController@store');
 Route::put('port_origins/{port_origin}','PortOriginController@update');
 Route::delete('port_origins/{port_origin}','PortOriginController@delete');
+
+Route::get('customers',function(){
+    return DB::select('select * from customers where id > ?',[1]);
+});
+
+
+Route::get('contacts',function(){
+    return DB::select('select * from contacts where id > ?',[1]);
+});
+
