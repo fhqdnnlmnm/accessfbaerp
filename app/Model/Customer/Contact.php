@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Model;
+namespace App\Model\Customer;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -9,6 +9,6 @@ class Contact extends Model
     //
 
     public function customer(){
-        return $this->belongsTo('App\Model\Customer');
+        return $this->belongsTo('App\Model\Customer\Customer');
     }
 }

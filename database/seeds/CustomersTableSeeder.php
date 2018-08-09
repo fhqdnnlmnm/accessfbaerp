@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Model\Customer;
+use App\Model\Customer\Customer;
 
 class CustomersTableSeeder extends Seeder
 {
@@ -15,8 +15,8 @@ class CustomersTableSeeder extends Seeder
         //
         Customer::truncate();
 
-        factory(App\Model\Customer::class,50)->create()->each(function($u){
-            $u->contacts()->save(factory(App\Model\Contact::class)->make());
+        factory(App\Model\Customer\Customer::class,50)->create()->each(function($u){
+            $u->contacts()->save(factory(App\Model\Customer\Contact::class)->make());
         });
 
         // $faker=\Faker\Factory::create('zh_CN');

@@ -17,6 +17,8 @@ class CreateCustomersTable extends Migration
             $table->increments('id');
             // 首要联系人
             $table->integer('contact_id')->unsigned();
+            //
+            // $table->integer('user_id')->unsigned();
             $table->string('name'); 
             $table->string('code');
             // 账期：0 => 票结，1 => 月结，默认为票结

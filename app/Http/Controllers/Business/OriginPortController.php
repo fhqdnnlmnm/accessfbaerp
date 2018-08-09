@@ -1,36 +1,36 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Model\PortOrigin;
+use App\Model\Business\OriginPort;
 use Illuminate\Http\Request;
 use App\Http\Resources\PortOrigin as PortOriginResource;
 
-class PortOriginController extends Controller
+class OriginPortController extends Controller
 {
     //
     public function index()
     {
-        return PortOrigin::all();
+        return OriginPort::all();
     }
 
     public function show($id)
     {
-        return PortOrigin::find($id);
+        return OriginPort::find($id);
     }
 
     public function store(Request $request)
     {
-        $portorigin = PortOrigin::create($request->all());
+        $portorigin = OriginPort::create($request->all());
         return response()->json($portorigin,201);
     }
 
-    public function update(Request $request,PortOrigin $portorigin)
+    public function update(Request $request,OriginPort $portorigin)
     {
         $portorigin->update($request->all());
         return response()->json($portorigin,200);
     }
 
-    public function delete(PortOrigin $portorigin)
+    public function delete(OriginPort $portorigin)
     {
         $portorigin->delete();
         return response()->json(null,204);

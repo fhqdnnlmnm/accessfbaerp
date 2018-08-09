@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Model\PortOrigin;
+use App\Model\Business\OriginPort;
 
 class PortOriginTableSeeder extends Seeder
 {
@@ -13,13 +13,13 @@ class PortOriginTableSeeder extends Seeder
     public function run()
     {
         //
-        PortOrigin::truncate();
+        OriginPort::truncate();
 
         $faker=\Faker\Factory::create();
 
         
         for($i = 0; $i < 10; $i++){
-            PortOrigin::create([
+            OriginPort::create([
                 'country'=>$faker->country,
                 'province' => $faker -> state,
                 'city' => $faker -> city,
@@ -30,7 +30,7 @@ class PortOriginTableSeeder extends Seeder
         };
 
         for($i = 0; $i < 10; $i++){
-            PortOrigin::create([
+            OriginPort::create([
                 'country'=>$faker->country,
                 'province' => $faker -> state,
                 'city' => $faker -> city,
