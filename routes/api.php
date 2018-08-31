@@ -5,6 +5,7 @@ use App\Model\PortOrigin;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Business\OriginPortController;
 use App\Http\COntrollers\Business\DestPortController;
+use App\User;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -27,7 +28,46 @@ use App\Http\COntrollers\Business\DestPortController;
 
 // 1.1 起运港管理
 Route::get('origin_ports',function () {
-    return DB::select('select * from origin_ports where id > ?',[1]);
+    // return DB::select('select * from origin_ports where id > ?',[1]);
+    // 测试insert语句的返回值
+    // $temp=DB::insert('insert into users (name,email,password) values(?,?,?)',['Dayle','1@test.com','zsk']);
+    // var_dump($temp);
+    // 数据库事务
+    // DB::transaction(function(){
+    //     DB::table('users')->where('id',4)->update(['email'=>'test@163.com']);
+    // },2);
+    // 数据库请求构建器
+    // DB::table('users')->orderby('id')->chunk(1,function($users){
+    //     echo $users;
+    //     if($users[0]->id == 2){
+    //         return false;
+    //     };
+    // });
+    // 聚合
+    // return DB::table('users')->sum('id');
+    // 字段约束
+    // return DB::table('customers')->join('contacts','customers.contact_id','=','contacts.id')
+    //     ->where('contacts.id','<',5)
+    //     ->select('customers.id','customers.name','contacts.id as c_id','contacts.telephone')
+    //     ->get();
+    // where子句
+    // return get_object_vars(DB::table('users')->inRandomOrder()->first());
+    // return DB::table('users')->paginate(1)->total();
+    // 未找到异常
+    // $temp=User::find(1);
+    // return $temp->fill(['email'=>'test@gmail.com']);
+    // 全局作用域
+    // return User::id(0)->get();
+    // 观察者
+    // $temp = User::find(1);
+    // return $temp->fill(['email'=>'test@163.com']);
+    // $temp = User::create(['name'=>'ray','email'=>'test@111.com','password'=>'test']);
+    // return $temp;
+    //  模型关联
+    $temp = User::find(1)->comments()->get();
+   return $temp;
+   
+    // return get_object_vars($temp);
 });
 Route::get('origin_ports/{origin_port}','OriginPortController@show');
 Route::post('origin_ports','OriginPortController@store');
