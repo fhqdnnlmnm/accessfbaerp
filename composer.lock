@@ -4,9 +4,10 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "67ac5658215de157a380f49e0b855033",
+    "content-hash": "b7904d07d1e1765a0a199aa11d6301a3",
     "packages": [
         {
+<<<<<<< HEAD
             "name": "asm89/stack-cors",
             "version": "1.2.0",
             "source": {
@@ -120,6 +121,8 @@
             "time": "2018-01-04T06:59:27+00:00"
         },
         {
+=======
+>>>>>>> parent of 50ad370... 安装Laravel-cors
             "name": "dnoegel/php-xdg-base-dir",
             "version": "0.1",
             "source": {
