@@ -24,6 +24,9 @@ use App\Http\COntrollers\Business\DestPortController;
 // 1 基础信息管理
 //   1.1 起运港管理
 // 1.2 目的港管理
+// 2 营销管理
+//   2.1 QQ营销管理
+
 
 // 1.1 起运港管理
 Route::get('origin_ports',function () {
@@ -56,3 +59,10 @@ Route::get('contacts',function(){
     return DB::select('select * from contacts where id > ?',[1]);
 });
 
+
+// 2 营销管理
+//   2.1 QQ营销管理
+Route::post('insertQq','Market\QqController@insertQq');
+Route::get('index','Market\QqController@index');
+Route::post('import','Market\QqController@importQq');
+Route::post('export','Market\QqController@exportQq');
